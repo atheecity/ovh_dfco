@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}DfcoFoot - Admin{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <script src="{{ asset('bundles/dfadmin/js/admin.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+		<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        {% block javascripts %}
+        {% endblock %}
+		<link href="{{ asset('bundles/dfadmin/css/admin.css') }}" rel="stylesheet" media="screen" />
+    </head>
+    <body class="wood dark">
+        <div id="head">
+            <div class="left">
+                <a href="#" class="button profile"><img src="" alt="" /></a>
+                Bonjour, 
+                <a href="#">John Doe</a>
+                |
+                <a href="#">Se déconnecter</a>
+            </div>
+            <div class="right">
+                <form action="#" id="search" class="search placeholder">
+                    <label>Vous recherchez un truc ?</label>
+                    <input type="text" value="" name="q" class="text"/>
+                    <input type="submit" value="rechercher" class="submit"/>
+                </form>
+            </div>
+        </div>
+        <div id="sidebar" class="black">
+            <ul>
+                <li>
+                    <a href="index.php">
+                        <img src="{{ asset('bundles/dfadmin/images/menu/inbox.png') }}" alt="" />
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nosubmenu">
+                	<a href="{{ path('DFBreveBundle_listeBreveAdmin') }}"><img src="" alt="" />Brève</a>
+                </li>
+                <li class="nosubmenu">
+                	<a href="{{ path('DFStadeBundle_listeStadeAdmin') }}"><img src="" alt="" />Stade</a>
+                </li>
+                <li class="nosubmenu">
+                	<a href="{{ path('DFEquipeBundle_listeClubAdmin') }}"><img src="" alt="" />Equipe</a>
+                </li>
+                <li class="nosubmenu">
+                	<a href="{{ path('DFMatchBundle_listeCompetition') }}"><img src="" alt="" />Match</a>
+                </li>
+                <li>
+                	<a href="{{ path('DFJoueurBundle_showJoueur') }}"><img src="" alt="" />Joueur</a>
+                </li>
+                <li>
+                	<a href="{{ path('DFSondageBundle_listSondage') }}" src="" alt="">Sondage</a>
+                </li>
+            </ul>
+        </div> 
+        <div id="content" class="black">
+			<h1>{% block titleContent %}{% endblock %}</h1>  
+			{% block body %}
+			{% endblock %}             
+        </div>
+    </body>
+</html>

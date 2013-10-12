@@ -1,0 +1,16 @@
+<div class="team">
+	<header class="title-team">Composition {{ equipe.nom }}</header>
+	<ul class="coach">
+		<li>Entraîneur {{ clubEntraineur.entraineur.prenom }} {{ clubEntraineur.entraineur.nom }}</li>
+	</ul>
+	{% if composition is not null %}
+		<div class="lst-joueur">
+			<header>Titulaires</header>
+			<ul>
+				{% for i in 1..11 %}
+					<li>{{ attribute(composition, 'joueur'~i).nom }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+</div>

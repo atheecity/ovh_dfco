@@ -1,0 +1,26 @@
+{% extends 'DFHomeBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link href="{{ asset('bundles/dfbreve/css/breve.css') }}" rel="stylesheet" media="screen" />
+{% endblock %}
+
+{% block contentBody %}
+	<div id="content-breve">
+		<p id="titre">{{ breve.title }}</p>
+		<div id="breve-entete">
+			{{ breve.datePublication|date('d/m/Y \\à\\ H:i') }} | Par {{ breve.author.username }}
+		</div>
+		<div id="breve-cont">
+			<div id="breve-ill">
+				<img src="{{ breve.illustration }}" alt="" />
+			</div>
+			<p>{{ breve.content|raw }}</p>
+		</div>
+		<hr class="cl">
+		{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'breve-' ~ breve.id } %}
+	</div>
+	<div id="left-content">
+		{{ render(controller('DFBreveBundle:Public:moduleListeBreve')) }}
+	</div>
+{% endblock %}

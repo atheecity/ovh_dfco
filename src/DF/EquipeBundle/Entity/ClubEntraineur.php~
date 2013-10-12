@@ -1,0 +1,49 @@
+<?php
+
+namespace DF\EquipeBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ClubEntraineur
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="DF\EquipeBundle\Entity\ClubEntraineurRepository")
+ */
+class ClubEntraineur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DF\EquipeBundle\Entity\Club")
+     */
+    private $club;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DF\EquipeBundle\Entity\Entraineur")
+     */
+    private $entraineur;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DF\MatchBundle\Entity\Saison")
+     */
+    private $saison;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

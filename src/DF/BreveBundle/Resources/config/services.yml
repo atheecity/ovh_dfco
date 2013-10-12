@@ -1,0 +1,7 @@
+parameters:
+#    df_breve.example.class: DF\BreveBundle\Example
+
+services:
+#    df_breve.example:
+#        class: %df_breve.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

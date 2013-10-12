@@ -1,0 +1,63 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block titleContent %}Feuille de match{% endblock %}
+
+{% block body %}
+
+<!-- CSS -->
+{% stylesheets '@DFManageMatchBundle/Resources/public/css/manageMatch.css' %}
+<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+
+<div class="bloc left">
+	<div class="title">Domicile : {{ match.equipeDom.nom }}</div>
+	<div class="content dashboard">
+		{% if match.feuilleMatch.compositionDom is not null %}
+		<ul>
+			{% for i in 1..11 %}
+			<li>{{ attribute(match.feuilleMatch.compositionDom, 'joueur'~i).nom }}</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<a href="{{ path('DFManageMatchBundle_newComposition', { feuille_id : match.feuilleMatch.id, type_equipe : 'home' }) }}">Nouvelle composition</a>
+		{% endif %}
+	</div>
+</div>
+<div class="bloc right">
+	<div class="title">Extérieur : {{ match.equipeExt.nom }}</div>
+	<div class="content dashboard">
+		{% if match.feuilleMatch.compositionExt is not null %}
+		<ul>
+			{% for i in 1..11 %}
+			<li>{{ attribute(match.feuilleMatch.compositionExt, 'joueur'~i).nom }}</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<a href="{{ path('DFManageMatchBundle_newComposition', { feuille_id : match.feuilleMatch.id, type_equipe : 'away' }) }}">Nouvelle composition</a>
+		{% endif %}
+	</div>
+</div>
+<div class="bloc left">
+	<div class="title">Buts : {{ match.equipeDom.nom }}</div>
+	<a href="{{ path('DFManageMatchBundle_newBut', {
+		'match_id' : match.id, 
+		'club_id' : match.equipeDom.id
+	}) }}">Ajouter but</a>
+	<div class="content dashboard">
+		<ul>
+			{% for but in buts %}
+				{% if but.equipe.id == match.equipeDom.id %}
+					<li>{{ but.joueur.nom }} - {{ but.minute }}"</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+<div class="bloc right">
+	<div class="title">Buts : {{ match.equipeExt.nom }}</div>
+	<a href="{{ path('DFManageMatchBundle_newBut', {
+		'match_id' : match.id, 
+		'club_id' : match.equipeExt.id
+	}) }}">Ajouter but</a>
+</div>
+{% endblock %}

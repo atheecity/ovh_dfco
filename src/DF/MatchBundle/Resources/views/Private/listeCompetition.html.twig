@@ -1,0 +1,31 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block titleContent %}Liste des compétitions pour le DFCO{% endblock %}
+
+{% block body %}
+<div class="bloc">
+	<div class="title">Liste des compétitions</div>
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Club</th>
+					<th>Saison</th>
+					<th>Compétition</th>
+					<th>Sélectionner</th>	
+				</tr>
+			</thead>
+			<tbody>
+				{% for competition in competitions %}
+				<tr>
+					<td>{{ competition.club.nom }}</td>
+					<td>{{ competition.saison.libelle }}</td>
+					<td>{{ competition.competition.libelle }}</td>
+					<td><a href="{{ path('DFMatchBundle_competition', {'id_competition' : competition.competition.id }) }}">Sélectionner</a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %} 

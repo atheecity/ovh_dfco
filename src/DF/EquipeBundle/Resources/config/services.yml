@@ -1,0 +1,7 @@
+parameters:
+#    df_equipe.example.class: DF\EquipeBundle\Example
+
+services:
+#    df_equipe.example:
+#        class: %df_equipe.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,13 @@
+DFJoueurBundle_newEffectif:
+    pattern:  /admin/joueurs/new-effectif/{id_club}/
+    defaults: { _controller: DFJoueurBundle:Private:newEffectif }
+    requirements:
+        id_club: \d+
+
+DFJoueurBundle_showJoueur:
+    pattern: /admin/joueurs/show/
+    defaults: { _controller: DFJoueurBundle:Private:showJoueur }
+    
+DFJoueurBundle_selectNewEffectif:
+    pattern: /admin/select-effectif/
+    defaults: { _controller: DFJoueurBundle:Private:selectNewEffectif }

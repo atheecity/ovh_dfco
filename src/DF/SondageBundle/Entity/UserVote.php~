@@ -1,0 +1,49 @@
+<?php
+
+namespace DF\SondageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UserVote
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="DF\SondageBundle\Entity\UserVoteRepository")
+ */
+class UserVote
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DF\UserBundle\Entity\User")
+     */
+    private $user;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DF\SondageBundle\Entity\Question")
+     */
+    private $question;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DF\SondageBundle\Entity\Reponse")
+     */
+    private $reponse;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

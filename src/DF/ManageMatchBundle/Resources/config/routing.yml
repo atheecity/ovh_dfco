@@ -1,0 +1,27 @@
+DFManageMatchBundle_newFeuilleMatch:
+    pattern: /admin/new-feuille-match/{match_id}/
+    defaults: { _controller: DFManageMatchBundle:Private:newFeuilleMatch }
+
+DFManageMatchBundle_displayFeuilleMatch:
+    pattern: /admin/feuille-match/{feuille_id}/
+    defaults: { _controller: DFManageMatchBundle:Private:displayFeuilleMatch }
+    options: 
+        expose: true
+    
+DFManageMatchBundle_newComposition:
+    pattern: /admin/feuille-match/{feuille_id}/new-composition/{type_equipe}/
+    defaults: { _controller: DFManageMatchBundle:Private:newComposition }
+    
+DFManageMatchBundle_newGroupe:
+    pattern: /admin/match/{match_id}/new-groupe/
+    defaults: { _controller: DFManageMatchBundle:Private:newGroupe }
+    
+DFManageMatchBundle_newBut:
+    pattern: /admin/match/{match_id}/club/{club_id}/new-but/
+    defaults: { _controller: DFManageMatchBundle:Private:newBut }
+    
+
+
+DFManageMatchBundle_showMatch:
+    pattern: /show-match/{match_id}/
+    defaults: { _controller: DFManageMatchBundle:Public:showMatch }

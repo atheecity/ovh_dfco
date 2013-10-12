@@ -1,0 +1,32 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block titleContent %}Sondages{% endblock %}
+
+{% block body %}
+<a href="{{ path('DFSondageBundle_newSondage') }}" >Ajouter un sondage</a>
+<div class="bloc">
+	<div class="title">Liste des sondages</div>
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Question</th>
+					<th>Réponses</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for sondage in sondages %}
+					<tr>
+						<td>{{ sondage.libelle }}</td>
+						<td>
+							{% for reponse in sondage.reponses %}
+								{{ reponse.libelle }},  
+							{% endfor %}
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %} 

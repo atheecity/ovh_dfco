@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{{ asset('bundles/dfhome/css/home.css') }}" rel="stylesheet" media="screen" />
+        <link href="{{ asset('bundles/dfhome/css/menu.css') }}" rel="stylesheet" media="screen" />
+        <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
+        {% stylesheets '@DFHomeBundle/Resources/public/css/loader.css' %}
+        	<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+        {% endstylesheets %}
+        {% block stylesheets %}
+        {% endblock %}
+  		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" ></script>
+    </head>
+    <body>
+    	<div id="header">
+    		<div id="content">
+    			<header>
+    				<nav id="menu">
+    					<ul id="fancyNav">
+    						<li>
+    							<a href="{{ path('DFHomeBundle_home') }}">Accueil</a>
+    							<img src="{{ asset('bundles/dfhome/images/border-top.png') }}" />
+    						</li>
+    						<li>
+    							<a href="{{ path('DFBreveBundle_listeBreve') }}">Actus</a>
+    							<img src="{{ asset('bundles/dfhome/images/border-top.png') }}" />
+    						</li>
+    						<li class="select-tab">
+    							Saison 13/14
+    							<img src="{{ asset('bundles/dfhome/images/border-top.png') }}" />
+    							<div id="saison" class="tab-content">
+    								<div class="content">
+	    								<div class="module">
+	    									<h3 class="titre">Ligue 2</h3>
+	    									<div class="elem"><a href="{{ path('DFMatchBundle_afficherCalendrier') }}">Calendrier</a></div>
+	    									<div class="elem"><a href="{{ path('DFMatchBundle_afficherCalendrier') }}">Résultats</a></div>
+	    									<div class="elem"><a href="{{ path('DFMatchBundle_afficherClassement') }}">Classement</a></div>
+	    								</div>
+	    								<div class="module">
+	    									<h3 class="titre">Coupe de France</h3>
+	    									<div class="elem">Calendrier</div>
+	    									<div class="elem">Résultats</div>
+	    								</div>
+	    								<div class="module">
+	    									<h3 class="titre">Coupe de la Ligue</h3>
+	    									<div class="elem">Calendrier</div>
+	    									<div class="elem">Résultats</div>
+	    								</div>
+	    							</div>
+    							</div>
+    						</li>
+    						<li class="select-tab">
+    							Le club
+    							<img src="{{ asset('bundles/dfhome/images/border-top.png') }}" />
+    							<div id="club" class="tab-content">
+    								<div class="content">
+	    								<ul>
+	    									<li>
+	    										<div class="bd_right">Présentation</div>
+	    									</li>
+	    									<li>
+	    										<div class="bd_right bd_left">Stade des poussots</div>
+	    									</li>
+	    									<li>
+	    										<div class="bd_left">Stade Gaston-Gérard</div>
+	    									</li>
+	    								</ul>
+	    							</div>
+    							</div>
+    						</li>
+    						<li class="select-tab">
+    							Supporters
+    							<img src="{{ asset('bundles/dfhome/images/border-top.png') }}" />
+    							<div id="supporters" class="tab-content">
+    								<div class="content">
+	    								<ul>
+	    									<li>
+	    										<div class="bd_right">Les Téméraires</div>
+	    									</li>
+	    									<li>
+	    										<div class="bd_right bd_left">Les Dogs Dijon</div>
+	    									</li>
+	    									<li>
+	    										<div class="bd_left">Lingon’s Boys</div>
+	    									</li>
+	    								</ul>
+	    							</div>
+    							</div>
+    						</li>
+    						<li>
+    							<img src="{{ asset('bundles/dfhome/images/border-top.png') }}" />
+    							<a href="{{ path('fos_user_profile_show') }}">Mon profil</a>
+	    						<img id="last" src="{{ asset('bundles/dfhome/images/border-top.png') }}" />
+    						</li>
+    					</ul>
+    				</nav>
+    			</header>
+    			<img id="chouette" src="{{ asset('bundles/dfhome/images/chouette2.png') }}" alt="" />
+    			<span id="txt-chouette">PLANETE-DFCO</span>
+    			<ul id="connect">
+    			{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    				<li class="border-right">Connecté en tant que {{ app.user.username }}</li>
+    				<li><a href="{{ path('fos_user_security_logout') }}">DECONNEXION</a></li>
+				{% else %}
+					<li class="border-right"><a href="{{ path('fos_user_registration_register') }}">INSCRIPTION</a></li>
+					<li><a href="{{ path('fos_user_security_login') }}">CONNEXION</a></li>
+				{% endif %}
+				</ul>
+    		</div>
+    	</div>
+    	<div id="content-body">
+    		<div id="content-padding">
+    		{% block contentBody %}
+				
+			{% endblock %}
+	    	</div>
+    	</div>
+        {% block body %}{% endblock %}
+        <footer id="home-footer">
+        	<div id="content">
+        		<ul class="menu">
+        			<li class="title">Extras</li>
+        			<li></li>
+        			<li></li>
+        			<li></li>
+        		</ul>
+        		<ul class="menu">
+        			<li class="title">Aide & Contact</li>
+        			<li></li>
+        			<li></li>
+        			<li></li>
+        		</ul>
+        		<ul class="menu">
+        			<li class="title">Légal</li>
+        			<li></li>
+        			<li></li>
+        			<li></li>
+        		</ul>
+        		<ul class="menu">
+        			<li class="title">Nous suivre</li>
+        			<li></li>
+        			<li></li>
+        			<li></li>
+        		</ul>
+        	</div>
+        </footer>
+        {% block javascripts %}{% endblock %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+		<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/dfhome/js/home.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'DFHomeBundle::layout.html.twig' %}
+
+{% block contentBody %}
+
+	{{ render(controller('DFHomeBundle:Public:slide')) }}
+	<div id="left-top">	
+		{{ render(controller('DFBreveBundle:Public:moduleListeBreve')) }}
+		<div id="pub-carre">
+			Publicité
+		</div>
+		<div id="suivre" style=" width: 410px; height: 330px; margin-top: 25px; ">
+		<div class="title-ribbons" style="height:250px"> 
+			<h1 style="width: 150px">NOUS SUIVRE <span class="arrow"></span> </h1>
+		</div>
+	</div>
+	</div>
+	<div id="center">
+		{{ render(controller('DFMatchBundle:Public:selectModuleMatch')) }}
+		{{ render(controller('DFMatchBundle:Public:moduleClassement')) }}
+	</div>
+	{{ render(controller('DFSondageBundle:Public:moduleSondage')) }}
+	{{ render(controller('DFReportersBundle:Public:reporters')) }}
+{% endblock %}

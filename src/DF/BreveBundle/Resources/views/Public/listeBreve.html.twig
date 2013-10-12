@@ -1,0 +1,24 @@
+{% extends 'DFHomeBundle:Public:affichage-classique.html.twig' %}
+
+{% block zoneLeft %}
+<table>
+	<tbody>
+		{% for breve in breves %}
+		<tr>
+			<td>
+				<img src="{{ breve.illustration }}" alt="" width="150px" height="100px"/>
+			</td>
+			<td class="article-right">
+				<a href="{{ path('DFBreveBundle_afficherBreve', {id_breve : breve.id }) }}" >{{ breve.title }}</a>
+				<span class="cat-date">{{ breve.categorie.libelle }} - {{ breve.datePublication|date('d/m/Y \\à\\ h:i') }}</span>
+				<p>{{ breve.content|slice(0, 200)|striptags|raw }}...</p>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block zoneRight %}
+	{{ render(controller('DFBreveBundle:Public:moduleListeBreve')) }}
+{% endblock %}

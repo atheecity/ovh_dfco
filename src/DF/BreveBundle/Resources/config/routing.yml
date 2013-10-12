@@ -1,0 +1,49 @@
+DFBreveBundle_newBreve:
+    pattern:  /admin/breves/new-breve/
+    defaults: { _controller: DFBreveBundle:Private:newBreve }
+    
+DFBreveBundle_deleteBreve:
+    pattern: /admin/breves/delete-breve/{id_breve}/
+    defaults: { _controller: DFBreveBundle:Private:deleteBreve }
+    requirements:
+        id_breve: \d+
+
+DFBreveBundle_listeBreveAdmin:
+    pattern: /admin/breves/
+    defaults: { _controller: DFBreveBundle:Private:listeBreveAdmin }
+    
+DFBreveBundle_updateBreve:
+    pattern: /admin/breves/update-breve/{id_breve}
+    defaults: { _controller: DFBreveBundle:Private:updateBreve }
+    requirements:
+        id_breve: \d+
+
+DFBreveBundle_updatePublish:
+    pattern: /admin/breves/update-publish/{id_breve}/{isPublish}/
+    defaults: { _controller: DFBreveBundle:Private:updatePublish }
+    requirements:
+        id_breve: \d+
+    options: 
+        expose: true
+        
+DFBreveBundle_updatePublishSlide:
+    pattern: /admin/breves/update-publish-slide/{breve_id}/{isPublish}/
+    defaults: { _controller: DFBreveBundle:Private:updatePublishSlide }
+    requirements:
+        id_breve: \d+
+    options: 
+        expose: true
+        
+        
+        
+DFBreveBundle_module_listeBreve:
+    pattern: /module/breves/
+    defaults: { _controller: DFBreveBundle:Private:moduleListeBreve }
+    
+DFBreveBundle_afficherBreve:
+    pattern: /breve/{id_breve}
+    defaults: { _controller: DFBreveBundle:Public:afficherBreve }
+    
+DFBreveBundle_listeBreve:
+    pattern: /breves/
+    defaults: { _controller: DFBreveBundle:Public:listeBreve }

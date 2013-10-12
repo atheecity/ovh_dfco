@@ -1,0 +1,7 @@
+parameters:
+#    df_admin.example.class: DF\AdminBundle\Example
+
+services:
+#    df_admin.example:
+#        class: %df_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

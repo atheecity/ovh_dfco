@@ -1,0 +1,3 @@
+DFReporters_moduleReporters:
+    pattern:  /module/reporters/
+    defaults: { _controller: DFReportersBundle:Public:reporters }

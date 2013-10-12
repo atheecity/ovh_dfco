@@ -1,0 +1,38 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block titleContent %}Liste des joueurs{% endblock %}
+
+{% block body %}
+<a href="{{ path('DFJoueurBundle_selectNewEffectif') }}">Ajouter effectif</a>
+<div class="bloc">
+	<div class="title">Liste des joueurs</div>
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Nationalité</th>
+					<th>Date naissance</th>
+					<th>Taille</th>
+					<th>Poids</th>	
+					<th>Opérations</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for joueur in joueurs %}
+				<tr>
+					<td>{{ joueur.nom }}</td>
+					<td>{{ joueur.prenom }}</td>
+					<td>{{ joueur.nationalite }}</td>
+					<td>{{ joueur.dateNaissance|date('d/m/Y') }}</td>
+					<td>{{ joueur.taille }}</td>
+					<td>{{ joueur.poids }}</td>
+					<td></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

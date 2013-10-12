@@ -1,0 +1,52 @@
+#module_sondage {
+	width:340px;
+	margin-top:25px;
+	display: inline-block; 
+	vertical-align:top;
+}
+
+#module_sondage #title-ribbons-sondage {
+	height:250px;
+}
+
+#module_sondage .loader {
+	padding-top: 55px;
+	display: none;
+}
+
+#module_sondage .loader_style {
+	padding-left: 150px;
+}
+
+#module_sondage p#question {
+	text-align: center;
+}
+
+#module_sondage #form_vote {
+	padding-left: 25px;
+}
+
+#module_sondage #form_vote input {
+	margin-bottom: 10px;
+}
+
+#module_sondage #form_vote label {
+	width: 290px;
+	padding-left: 10px;
+}
+
+#module_sondage #sondage_submit {
+	text-align: center;
+	padding-top: 10px;
+}
+
+#module_sondage .res_libelle {
+	width: 125px;
+	font-size: 11px;
+	word-break: break-word;
+	padding-left: 10px;
+}
+
+#module_sondage #response table {
+	padding-top: 15px;
+}

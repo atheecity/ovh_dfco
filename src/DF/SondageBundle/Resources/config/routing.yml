@@ -1,0 +1,12 @@
+DFSondageBundle_listSondage:
+    pattern: /admin/sondages/
+    defaults: { _controller: DFSondageBundle:Private:listSondage }
+    
+DFSondageBundle_newSondage:
+    pattern: /admin/new-sondage/
+    defaults: { _controller: DFSondageBundle:Private:newSondage }
+    
+    
+DFSondageBundle_moduleSondage: 
+    pattern: /module-sondage/
+    defaults: { _controller: DFSondageBundle:Public:moduleSondage }

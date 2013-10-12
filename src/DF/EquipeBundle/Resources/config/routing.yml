@@ -1,0 +1,19 @@
+DFEquipeBundle_listeClubAdmin:
+    pattern: /admin/clubs/
+    defaults: { _controller: DFEquipeBundle:Private:listeClubAdmin }
+    
+DFEquipeBundle_newClub:
+    pattern: /admin/clubs/new-club/
+    defaults: { _controller: DFEquipeBundle:Private:newClub }
+    
+DFEquipeBundle_deleteClub:
+    pattern: /admin/clubs/delete-club/{id_club}/
+    defaults: { _controller: DFEquipeBundle:Private:deleteClub }
+    requirements:
+        id_club: \d+
+        
+DFEquipeBundle_updateClub:
+    pattern: /admin/clubs/update-club/{id_club}/
+    defaults: { _controller: DFEquipeBundle:Private:updateClub }
+    requirements:
+        id_club: \d+

@@ -1,0 +1,161 @@
+#content-match {
+	background-color: #444;
+	border-radius: 5px 5px 0 0;
+	border-bottom: 10px solid rgb(51, 51, 51);
+}
+
+#content-match #top-match #competition {
+	padding-top: 20px;
+	position:relative;
+	text-align: center;	
+}
+
+#content-match #top-match #competition>span {
+	position: relative;
+	padding: 0 20px;
+	color: rgb(213, 213, 213);
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#content-match #top-match #date {
+	text-align: center;
+	font-size: 15px;
+	color: rgb(213, 213, 213);
+	margin-top: 0;
+	font-weight: bold;
+}
+
+#content-match #top-match .team {
+	font-size: 35px;
+	width: 370px;
+	color: #fff;
+	font-weight: bold;
+	padding: 20px 0;
+	vertical-align: middle;
+}
+
+#content-match #top-match #res {
+	display: table;
+	padding: 40px 0 0 0;
+}
+
+#content-match #top-match .logo {
+	width: 130px;
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+#content-match #top-match .score {
+	width: 150px;
+	padding: 0 40px;
+	vertical-align: middle;
+}
+
+#content-match #top-match #top-match-but {
+	display: table;
+}
+
+#content-match #top-match .scorers {
+	width: 370px;
+	color: #fff;
+	display: table-cell;
+}
+
+#content-match #top-match .score-m {
+	font-size: 80px;
+	line-height: 120px;
+	width: 150px;
+	text-align: center;
+	color: #fff;
+}
+
+#content-match  ul {
+	list-style: none;
+	padding-left: 0;
+	border-top: 1px solid #1f1f1f;
+	border-bottom: 1px solid rgb(99, 99, 99);
+}
+
+#content-match li {
+	border-top: 1px solid rgb(99, 99, 99);
+	border-bottom: 1px solid #1f1f1f;
+	line-height: 25px;
+	color: rgb(230, 228, 228);
+	font-weight: bold;
+}
+
+#content-match #top-match #top-match-but .right ul {
+	margin-left: 130px;
+}
+
+#content-match #top-match #top-match-but .left ul {
+	margin-right: 130px;
+}
+
+#content-match #composition {
+	display: table;
+	margin-top: 25px;
+}
+
+#content-match #composition .team {
+	display: table-cell;
+	width: 500px;
+}
+
+#content-match #composition .score {
+	width: 150px;
+	padding: 0 40px;
+	vertical-align: middle;
+}
+
+#content-match #composition .title-team {
+	position: relative;
+	background-color: rgb(51, 51, 51);
+	color: #fff;
+	padding-left: 10px;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+#content-match #composition .home .title-team {
+	margin-left: 130px;
+}
+
+#content-match #composition .home ul {
+	margin-left: 130px;
+}
+
+#content-match #composition .away .title-team {
+	margin-right: 130px;
+}
+
+#content-match #composition .away ul {
+	margin-right: 130px;
+}
+
+#live-text header{
+	font-size: 35px;
+	font-weight: bold;
+	padding-top: 25px;
+}
+
+.team .coach {
+	border-top: 1px solid #1f1f1f;
+	border-bottom: 1px solid #424242;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+#top-match #res div {
+	display: table-cell;
+}
+

@@ -1,0 +1,7 @@
+DFHomeBundle_home:
+    pattern: /home/
+    defaults: { _controller: DFHomeBundle:Public:home }
+    
+DFHomeBundle_slide:
+    pattern: /slide/
+    defaults: { _controller: DFHomeBundle:Public:slide }

@@ -1,0 +1,71 @@
+{% extends 'DFHomeBundle::layout.html.twig' %}
+
+{% block contentBody %}
+	<!-- CSS -->
+	{% stylesheets '@DFManageMatchBundle/Resources/public/css/manageMatch.css' %}
+		<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+	{% endstylesheets %}
+	
+	<div id="content-match">
+		<div id="top-match">
+			<p id="competition">
+				<span>{{ match.calendrier.competition.libelle }} - {{ match.calendrier.libelle }}</span>
+			</p>
+			<p id="date">
+				{{ match.date|date('d/m/Y\\, H:i') }}
+			</p>
+			<div id="res">
+				<div class="team right">{{ match.equipeDom.nom }}</div>
+				<div class="logo"><img alt="" src="{{ match.equipeDom.logo }}" /></div>
+				<div class="score">
+					<div class="score-m">
+						{{ match.scoreDom }}-{{ match.scoreExt }}
+					</div>
+				</div>
+				<div class="logo"><img alt="" src="{{ match.equipeExt.logo }}" />	</div>
+				<div class="team left">{{ match.equipeExt.nom }}</div>
+			</div>
+			<div id="top-match-but">
+				<div class="scorers right">
+					<ul>
+						{% for but in buts %}
+							{% if but.equipe.id == match.equipeDom.id %}
+								<li>{{ but.joueur.prenom }} {{ but.joueur.nom }} {{ but.minute }}'</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="logo"></div>
+				<div class="score">
+					
+				</div>
+				<div class="logo"></div>
+				<div class="scorers left">
+					<ul>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="composition">
+			<div class="team home">
+				{{ render(controller('DFManageMatchBundle:Public:team', {
+					'match_id' : match.id, 
+					'type' : 'home'
+				})) }}
+			</div>
+			<div class="score"></div>
+			<div class="team away">
+				{{ render(controller('DFManageMatchBundle:Public:team', {
+					'match_id' : match.id, 
+					'type' : 'away'
+				})) }}
+			</div>
+		</div>
+	</div>
+	<div id="live-text">
+		<header>LIVE</header>
+		<hr>
+		<p>Ancun live pour ce match</p>
+	</div>
+{% endblock %}

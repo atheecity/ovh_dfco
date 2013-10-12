@@ -1,0 +1,45 @@
+{% stylesheets %}
+	<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+
+<div id="classement">
+	<div id="title-ribbons-classement" class="title-ribbons"> 
+		<h1>CLASSEMENT<span class="arrow"></span> </h1>
+		<table id="tab-classement">
+			<thead>
+				<tr>
+					<th>POS</th>
+					<th>EQUIPE</th>
+					<th>PTS</th>
+					<th>J</th>
+					<th>V</th>
+					<th>N</th>
+					<th>D</th>
+					<th>DIFF</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set i = 1 %}
+				{% for position in classement %}
+					{% if (i >= min_classement and i <= max_classement) %}
+						<tr>
+							<td>{{ i }}</td>
+							<td class="left">
+								<img src="{{ position.club.logo }}" alt="" width="20px" />
+								<span>{{ position.club.nom }}</span>
+							</td>
+							<td>{{ position.points }}</td>
+							<td>{{ position.journee }}</td>
+							<td>{{ position.victoire }}</td>
+							<td>{{ position.nul }}</td>
+							<td>{{ position.defaite }}</td>
+							<td>{{ position.diff }}</td>
+						</tr>
+					{% endif %}
+					{% set i = i+1 %}
+				{% endfor %}
+			</tbody>
+		</table>
+		<div id="classement-complet"><a href="{{ path('DFMatchBundle_afficherClassement') }}">Classement complet ></a></div>
+	</div>
+</div>

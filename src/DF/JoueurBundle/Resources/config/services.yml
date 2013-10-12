@@ -1,0 +1,7 @@
+parameters:
+#    df_joueur.example.class: DF\JoueurBundle\Example
+
+services:
+#    df_joueur.example:
+#        class: %df_joueur.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

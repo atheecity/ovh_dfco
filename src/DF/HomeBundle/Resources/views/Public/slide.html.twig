@@ -1,0 +1,43 @@
+{% javascripts '@DFHomeBundle/Resources/public/js/slide.js' %}
+	<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% stylesheets '@DFHomeBundle/Resources/public/css/home.css' %}
+	<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" ></script>
+
+<div id="slide">
+    {% for i in 0..3 %}
+    	<div id="frag{{ i+1 }}" class="ui-tabs-panel 
+    	{% if i != 0 %}
+    	ui-tabs-hide
+    	{% elseif i == 0 %}
+    	select
+    	{% endif %}
+    	">
+    		<img src="{{ breves[i].illustration }}" alt="" width="620px" height="350px"/>
+		<div class="info" >
+		<div>
+			<div class="txt">
+				<p>
+					<span class="entete">{{ breves[i].categorie.libelle }}</span><br>
+					<span class="title"><a href="{{ path('DFBreveBundle_afficherBreve', { id_breve: breves[i].id }) }}">{{ breves[i].title }}</a></span>
+				</p>
+			</div>
+		</div>
+		</div>
+    </div>
+    {% endfor %}
+    <div id="frag">
+		<span class="chx" id="1">•</span>
+		<span class="chx" id="2">•</span>
+		<span class="chx" id="3">•</span>
+		<span class="chx" id="4">•</span>
+	</div>
+</div>
+
+<script>
+	$(autoChangFrag);
+</script>

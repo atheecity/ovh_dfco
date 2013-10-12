@@ -1,0 +1,3 @@
+DFAdminBundle_homePage:
+    pattern: /admin/
+    defaults: { _controller: DFAdminBundle:Private:homePage }

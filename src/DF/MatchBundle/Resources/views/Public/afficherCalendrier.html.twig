@@ -1,0 +1,44 @@
+{% extends 'DFHomeBundle:Public:affichage-classique.html.twig' %}
+
+{% block zoneLeft %}
+	<h1>Calendrier/Résultats</h1>
+	<div class="h1-entete">
+		Ligue 1
+	</div>
+	<!-- CSS -->
+	{% stylesheets '@DFMatchBundle/Resources/public/css/match.css' %}
+	<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+	{% endstylesheets %}
+	<div id="calendrier-club">
+		<table class="styl">
+			<thead>
+				<tr>
+					<th class="journee">Journée</th>
+					<th class="date">Date</th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for match in matchs %}
+				<tr>
+					<td class="text-center">{{ match.calendrier.competition.libelle }} - {{ match.calendrier.libelle }}</td>
+					<td class="text-center">{{ match.date|date("d/m/y \\à\\ H:i") }}</td>
+					<td class="text-right equipe font1">
+						{{ match.equipeDom.nom }} <img alt="" src="{{ match.equipeDom.logo }}" width="20px" />
+					</td>
+					<td class="font1 text-center">{{ match.scoreDom }} - {{ match.scoreExt }}</td>
+					<td class="equipe text-left font1">
+						<img alt="" src="{{ match.equipeExt.logo }}" width="20px" />{{ match.equipeExt.nom }} 
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{% block zoneRight %}
+	{{ render(controller('DFBreveBundle:Public:moduleListeBreve')) }}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block titleContent %}Stade{% endblock %}
+
+{% block body %}
+<a href="{{ path('DFStadeBundle_newStade') }}" >Ajouter un stade</a>
+<div class="bloc">
+	<div class="title">Liste des stades</div>
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Adresse</th>
+					<th>Ville</th>
+					<th>Code postal</th>
+					<th>Capacité</th>
+					<th>Opérations</th>	
+				</tr>
+			</thead>
+			<tbody>
+				{% for stade in stades %}
+				<tr>
+					<td>{{ stade.nom }}</td>
+					<td>{{ stade.adresse }}</td>
+					<td>{{ stade.ville }}</td>
+					<td>{{ stade.codePostal }}</td>
+					<td>{{ stade.capacite }}</td>
+					<td>
+						<a href="{{ path('DFStadeBundle_deleteStade', {'id_stade': stade.id }) }}">Supprimer</a>
+						<a href="{{ path('DFStadeBundle_updateStade', {'id_stade': stade.id }) }}">Modifier</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %} 

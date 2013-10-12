@@ -1,0 +1,64 @@
+{% extends 'DFHomeBundle:Public:affichage-classique.html.twig' %}
+
+{% block zoneLeft %}
+	<h1>Classement</h1>
+	<div class="h1-entete">
+		Ligue 1
+	</div>
+	<!-- CSS -->
+	{% stylesheets '@DFMatchBundle/Resources/public/css/match.css' %}
+	<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+	{% endstylesheets %}
+	<div id="classement-club">
+		<table class="styl">
+			<thead>
+				<tr>
+					<th class="th-position">Pos.</th>
+					<th></th>
+					<th>Club</th>
+					<th>Pts</th>
+					<th>J</th>
+					<th>G</th>
+					<th>N</th>
+					<th>P</th>
+					<th>Bp</th>
+					<th>Bc</th>
+					<th>Diff</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% set i = 1 %}
+			{% for position in classement %}
+				<tr>
+					<td class="position font1">{{ i }}</td>
+					<td class="logo">
+						<img src="{{ position.club.logo }}" alt=""/>
+					</td>
+					<td class="club">
+						<span class="nom-club font1">{{ position.club.nom }}</span>
+					</td>
+					<td class="font1">{{ position.points }}</td>
+					<td class="font2">{{ position.journee }}</td>
+					<td class="font2">{{ position.victoire }}</td>
+					<td class="font2">{{ position.nul }}</td>
+					<td class="font2">{{ position.defaite }}</td>
+					<td class="font2">{{ position.butPour }}</td>
+					<td class="font2">{{ position.butContre }}</td>
+					<td class="font2">
+						{% if position.diff > 0 %}
+							+{{ position.diff }}
+						{% else %}
+							{{ position.diff }}
+						{% endif %}
+					</td>
+				</tr>
+				{% set i = i + 1 %}
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{% block zoneRight %}
+	{{ render(controller('DFBreveBundle:Public:moduleListeBreve')) }}
+{% endblock %}

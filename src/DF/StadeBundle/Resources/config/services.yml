@@ -1,0 +1,7 @@
+parameters:
+#    df_stade.example.class: DF\StadeBundle\Example
+
+services:
+#    df_stade.example:
+#        class: %df_stade.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,41 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block titleContent %}Equipes{% endblock %}
+
+{% block body %}
+<a href="{{ path('DFEquipeBundle_newClub') }}" >Ajouter une équipe</a>
+<div class="bloc">
+	<div class="title">Liste des equipes</div>
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Nom complet</th>
+					<th>Logo</th>
+					<th>Acronyme</th>
+					<th>Lfp libellé</th>
+					<th>Adresse</th>
+					<th>Opérations</th>	
+				</tr>
+			</thead>
+			<tbody>
+				{% for club in clubs %}
+				<tr>
+					<td>{{ club.nom }}</td>
+					<td>{{ club.nomComplet }}</td>
+					<td>{{ club.logo|raw }}</td>
+					<td>{{ club.acronyme }}</td>
+					<td>{{ club.lfpLibelle }}</td>
+					<td>{{ club.adresse }}</td>
+					<td>
+						<a href="{{ path('DFEquipeBundle_deleteClub', {'id_club': club.id }) }}">Supprimer</a>
+						<a href="{{ path('DFEquipeBundle_updateClub', {'id_club': club.id }) }}">Modifier</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %} 

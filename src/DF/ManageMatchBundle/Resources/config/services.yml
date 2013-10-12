@@ -1,0 +1,7 @@
+parameters:
+#    df_manage_match.example.class: DF\ManageMatchBundle\Example
+
+services:
+#    df_manage_match.example:
+#        class: %df_manage_match.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

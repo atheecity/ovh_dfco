@@ -1,0 +1,22 @@
+<!-- CSS -->
+{% stylesheets '@DFSondageBundle/Resources/public/css/sondage.css' %}
+	<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+
+<!-- JS -->
+{% javascripts '@DFSondageBundle/Resources/public/js/sondage.js' %}
+	<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<div id="module_sondage">
+	<div class="title-ribbons" id="title-ribbons-sondage"> 
+		<h1>SONDAGE <span class="arrow"></span> </h1>
+		<p id="question">
+			{{ question.libelle }}
+		</p>
+		<div id="response">
+			{% block response %}
+			{% endblock %}
+		</div>
+	</div>
+</div>

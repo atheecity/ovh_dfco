@@ -1,0 +1,17 @@
+{% extends 'DFHomeBundle::layout.html.twig' %}
+
+{% block contentBody %}
+	<!-- CSS -->
+	{% stylesheets '@DFUserBundle/Resources/public/css/user.css' %}
+		<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+	{% endstylesheets %}
+
+	{% for key, message in app.session.flashbag.all() %}
+    	<div class="alert alert-{{ key }}">
+      		{{ message|trans({}, 'FOSUserBundle') }}
+   		</div>
+  	{% endfor %}
+ 
+  	{% block fos_user_content %}
+  	{% endblock fos_user_content %}
+{% endblock %}

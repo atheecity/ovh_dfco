@@ -1,0 +1,7 @@
+parameters:
+#    df_sondage.example.class: DF\SondageBundle\Example
+
+services:
+#    df_sondage.example:
+#        class: %df_sondage.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,26 @@
+{% block stylesheets %}
+	<link href="{{ asset('bundles/dfbreve/css/breve.css') }}" rel="stylesheet" media="screen" />
+{% endblock %}
+
+<div id="breve-module">
+    <div class="title-ribbons"> <h1>LES NEWS <span class="arrow"></span> </h1>
+	    <ul>
+	    {% for breve in breves %}
+	    	<li>
+	    		<a href="{{ path('DFBreveBundle_afficherBreve', {'id_breve':breve.id}) }}">
+		    		<div class="entete">
+		    			{% if breve.datePublication|date('m/d/Y') == "now"|date("m/d/Y") %}
+		    				{{ breve.datePublication|date('H:i') }} - <span class="cat">{{ breve.categorie.libelle }}</span>
+		    			{% else %}
+		    				{{ breve.datePublication|date('d/m/Y') }} - <span class="cat">{{ breve.categorie.libelle }}</span>
+		    			{% endif %}
+		    		</div>
+		    		<div class="title">
+		    			{{ breve.title }}
+		    		</div>
+	    		</a>
+	    	</li>
+	    {% endfor %}
+	    </ul>
+	</div>
+</div>

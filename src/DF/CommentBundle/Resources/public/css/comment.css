@@ -1,0 +1,86 @@
+.fos_comment_comment_metas {
+	
+}
+
+.fos_comment_comment_metas img {
+	position: absolute;
+	width: 50px;
+	padding-left: 5px;
+}
+
+.fos_comment_comment_body {
+	position: relative;
+	margin-left: 70px;
+}
+
+.fos_comment_comment_show header {
+	margin-left: 70px;
+}
+
+.bulle {
+	padding: 0 4px;
+	color: #ccc;
+}
+
+.fos_comment_comment_createdAt {
+	color: #ccc;
+	font-size: 12px;
+}
+
+.fos_comment_comment_authorname {
+	color: #700114;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.bt_com {
+	display: inline-block;
+	color: rgb(182, 182, 182);
+	cursor: pointer;
+	padding: 0 15px 0px 0px;
+	margin: 0;
+	font-size: 13px;
+	
+}
+
+.fos_comment_submit {
+	text-align: right;
+}
+
+.bt_com:hover {
+	color: rgb(61, 57, 57);
+}
+
+textarea#fos_comment_comment_body {
+	width: 100%;
+	padding: 20px;
+	font: 14px/24px helvetica, arial, sans-serif;
+	font-size: 20px;
+	height: 25px;
+	border: 1px solid #ccc;
+}
+
+.form_textarea {
+	margin-right: 40px;
+}
+
+.fos_comment_comment_body {
+	padding-bottom: 10px;
+}
+
+#fos_comment_thread > .fos_comment_comment_depth_0 > .fos_comment_comment_replies, 
+.fos_comment_comment_depth_1 > .fos_comment_comment_replies {
+	margin-left: 70px;
+}	
+
+.fos_comment_top {
+	width: 721px;
+}	
+
+.fos_comment_comment_depth_0 > .fos_comment_comment_replies .fos_comment_top {
+	width: 596px;
+}
+
+.fos_comment_comment_depth_1 > .fos_comment_comment_replies .fos_comment_top {
+	width: 471px;
+}	

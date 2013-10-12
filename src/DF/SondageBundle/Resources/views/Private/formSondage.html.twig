@@ -1,0 +1,15 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block body %}
+	<h1>{{ title }}</h1>
+	
+	<form method="post" {{ form_enctype(form) }}>
+		{{ form_widget(form) }}
+		<input type="submit" class="bouton" />
+	</form>
+	
+	<!-- JS -->
+	{% javascripts '@DFSondageBundle/Resources/public/js/sondage.js' %}
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

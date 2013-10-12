@@ -1,0 +1,19 @@
+{% extends 'DFSondageBundle:Public:moduleSondage.html.twig' %}
+
+{% block response %}
+	<table>
+		{% for reponse in question.reponses %}
+			<tr>
+				<td class="res_libelle">{{ reponse.libelle }}</td>
+				{% set taille = results[reponse.id]/results['total'] * 150 %}
+				<td>
+					<div style="width:{{ taille }}px;background-color:#444;display:inline-block">
+						&nbsp;
+					</div>
+					{% set res = results[reponse.id]/results['total']*100 %}
+					{{ res|number_format(0) }}%
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

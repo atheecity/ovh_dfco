@@ -1,0 +1,54 @@
+DFMatchBundle_newCalendrierLigue2:
+    pattern: /admin/matchs/new-calendrier-ligue2/
+    defaults: { _controller: DFMatchBundle:Private:newCalendrierLigue2 }
+    
+DFMatchBundle_newMatchLigue2:
+    pattern: /admin/matchs/new-match-ligue2/
+    defaults: { _controller: DFMatchBundle:Private:newMatchLigue2 }
+    
+DFMatchBundle_listeCompetition:
+    pattern: /admin/matchs/liste-competition/
+    defaults: { _controller: DFMatchBundle:Private:listeCompetition }
+    
+DFMatchBundle_competition:
+    pattern: /admin/matchs/competition/{id_competition}/
+    defaults: { _controller: DFMatchBundle:Private:competition }
+    
+DFMatchBundle_updateMatch:
+    pattern: /admin/matchs/competition/{id_competition}/match/{id_match}/
+    defaults: { _controller: DFMatchBundle:Private:updateMatch }
+    
+DFMatchBundle_updateClassementLigue2:
+    pattern: /admin/update-classement-ligue2/
+    defaults: { _controller: DFMatchBundle:Private:updateClassementLigue2 }
+    
+DFMatchBundle_newFeuilleMatch:
+    pattern: /admin/matchs/competition/{competition_id}/match/{match_id}/feuille/
+    defaults: { _controller: DFMatchBundle:Private:newFeuilleMatch }
+    
+    
+    
+DFMatchBundle_afficherCalendrier:
+    pattern: /ligue-2/calendrier-resultats/
+    defaults: { _controller: DFMatchBundle:Public:afficherCalendrier }
+    
+DFMatchBundle_afficherClassement:
+    pattern: /ligue-2/classement/
+    defaults: { _controller: DFMatchBundle:Public:afficherClassement }
+    
+DFMatchBundle_dernierMatch:
+    pattern: /dernier-match/
+    defaults: { _controller: DFMatchBundle:Public:dernierMatch }
+    
+DFMatchBundle_prochainMatch:
+    pattern: /prochain-match/
+    defaults: { _controller: DFMatchBundle:Public:prochainMatch }
+
+DFMatchBundle_modulecClassement:
+    pattern: /module/ligue-2/classement/
+    defaults: { _controller: DFMatchBundle:Public:moduleClassement }
+    
+DFMatchBundle_selectModuleMatch:
+    pattern: /select-module-match/
+    defaults: { _controller: DFMatchBundle:Public:selectModuleMatch }
+

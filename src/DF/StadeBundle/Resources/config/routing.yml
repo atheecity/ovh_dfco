@@ -1,0 +1,13 @@
+DFStadeBundle_newStade:
+    pattern:  /admin/new-stade/
+    defaults: { _controller: DFStadeBundle:Private:newStade }
+
+DFStadeBundle_deleteStade:
+    pattern: /admin/delete-stade/{id_stade}
+    defaults: { _controller: DFStadeBundle:Private:deleteStade }
+    requirements:
+        id_breve: \d+
+
+DFStadeBundle_listeStadeAdmin:
+    pattern: /admin/stades/
+    defaults: { _controller: DFStadeBundle:Private:listeStadeAdmin }

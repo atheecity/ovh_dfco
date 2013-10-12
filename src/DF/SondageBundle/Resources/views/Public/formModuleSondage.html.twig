@@ -1,0 +1,10 @@
+{% extends 'DFSondageBundle:Public:moduleSondage.html.twig' %}
+
+{% block response %}
+	<form method="post" {{ form_enctype(form) }} action="{{ path('DFSondageBundle_moduleSondage') }}">
+		{{ form_widget(form) }}
+		<div id="sondage_submit">
+			<input type="submit" class="bouton" />
+		</div>
+	</form>
+{% endblock %}

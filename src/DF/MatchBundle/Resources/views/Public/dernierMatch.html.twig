@@ -1,0 +1,28 @@
+{% block stylesheets %}
+	<link href="{{ asset('bundles/dfmatch/css/match.css') }}" rel="stylesheet" media="screen" />
+{% endblock %}
+
+<div id="dernier-match">
+	<div id="title-ribbons-dernier-match" class="title-ribbons"> <h1>DERNIER MATCH <span class="arrow"></span> </h1>
+		<div id="content-dernier-match">
+			<div id="equipe-dom" class="club-last-result">	
+				<p>{{ match.equipeDom.nom }}</p>
+				<img src="{{ match.equipeDom.logo }}" alt="" />
+			</div>
+			<div id="score">
+				<p>{{ match.scoreDom }} - {{ match.scoreExt }}</p>
+			</div>
+			<div id="equipe-ext" class="club-last-result">
+				<p>{{ match.equipeExt.nom }}</p>
+				<img src="{{ match.equipeExt.logo }}" alt="" />
+			</div>
+		</div>
+		<div id="feuille-match">
+			{% if match.feuilleMatch is not null %}
+				<a href="{{ path('DFManageMatchBundle_showMatch', { 
+					match_id : match.id
+				}) }}" >Voir feuille de match</a>
+			{% endif %}
+		</div>
+	</div>
+</div>

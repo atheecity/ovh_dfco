@@ -1,0 +1,85 @@
+/** FORMULAIRE INSCRIPTION **/
+#inscription {
+	width: 49%;
+	display: inline-block;
+}
+
+#inscription hr, #mention-legal hr {
+	margin-right: 20px;
+	margin-top: -10px;
+}
+
+#inscription form {
+	text-align: center;
+	margin-top: 50px;
+	margin-right: 20px;
+}
+
+#inscription p {
+	margin-right: 20px;
+}
+
+#inscription label {
+	text-align: left;
+}
+
+#mention-legal {
+	width: 49%;
+	display: inline-block;
+	vertical-align: top;
+	overflow: auto;
+	max-height: 600px;
+}
+
+
+/** FORMULAIRE CONNEXION **/
+#connexion {
+	width: 49%;
+	display: inline-block;
+}
+
+#connexion hr {
+	margin-right: 20px;
+	margin-top: -10px;
+}
+
+#connexion form {
+	text-align: center;
+	margin-top: 50px;
+	margin-right: 20px;
+}
+
+#connexion label {
+	text-align: left;
+}
+
+#connexion #check {
+	display: inline-block;
+	width: 180px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+#connexion #lb-check {
+	text-align: right;
+}
+
+/** LAYOUT_70_30 **/
+#zone-left {
+	width: 780px;
+	display: inline-block;
+}
+
+/** PROFILE **/
+#comment-module .title-ribbons h1 {
+	width: 270px;
+}
+
+#comment-module .title-ribbons {
+	height: 400px;
+}
+
+#comment-module p {
+	text-align: center;
+	line-height: 300px;
+}
