@@ -16,13 +16,29 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\AopBundle\JMSAopBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+        	new FOS\UserBundle\FOSUserBundle(),
+        	new FOS\RestBundle\FOSRestBundle(),
+        	new FOS\CommentBundle\FOSCommentBundle(),
+        	new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+        	new JMS\AopBundle\JMSAopBundle(),
+        	new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+        	new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+        	new JMS\SerializerBundle\JMSSerializerBundle($this),
+        	new DF\UserBundle\DFUserBundle(),
+            new DF\BreveBundle\DFBreveBundle(),
+            new DF\AdminBundle\DFAdminBundle(),
+            new DF\HomeBundle\DFHomeBundle(),
+            new DF\StadeBundle\DFStadeBundle(),
+        	new DF\CommentBundle\DFCommentBundle(),
+            new DF\JoueurBundle\DFJoueurBundle(),
+            new DF\EquipeBundle\DFEquipeBundle(),
+            new DF\MatchBundle\DFMatchBundle(),
+            new DF\ReportersBundle\DFReportersBundle(),
+            new DF\ManageMatchBundle\DFManageMatchBundle(),
+            new DF\SondageBundle\DFSondageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
