@@ -1,4 +1,67 @@
-# Internal routing configuration to handle ESI
-#_internal:
-#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#    prefix:   /_internal
+df_sondage:
+    resource: "@DFSondageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_manage_match:
+    resource: "@DFManageMatchBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_reporters:
+    resource: "@DFReportersBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_match:
+    resource: "@DFMatchBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_equipe:
+    resource: "@DFEquipeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_joueur:
+    resource: "@DFJoueurBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_stade:
+    resource: "@DFStadeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_home:
+    resource: "@DFHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_admin:
+    resource: "@DFAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+df_breve:
+    resource: "@DFBreveBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+    
+fos_comment_api:
+    type: rest
+    resource: "@DFCommentBundle/Resources/config/routing.yml"
+    prefix: /api    
+    defaults: { _format: html }
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
