@@ -9,6 +9,11 @@
 	margin-top: -10px;
 }
 
+.h1_inscr {
+	padding-bottom: 20px;
+	padding-top: 5px;
+}
+
 #inscription form {
 	text-align: center;
 	margin-top: 50px;
