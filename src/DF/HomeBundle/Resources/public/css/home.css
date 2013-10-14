@@ -33,6 +33,7 @@ h1 {
 	left: 0;
 	right: 0;
 	padding: 0;	
+	background: url('/bundles/dfhome/images/font-header.png') left top repeat-X
 	position: absolute;
 	height: 70px;
 	box-shadow: 0 0 10px 1px #929292;
