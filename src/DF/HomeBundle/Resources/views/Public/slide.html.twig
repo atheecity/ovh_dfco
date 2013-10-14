@@ -10,25 +10,27 @@
 
 <div id="slide">
     {% for i in 0..3 %}
-    	<div id="frag{{ i+1 }}" class="ui-tabs-panel 
-    	{% if i != 0 %}
-    	ui-tabs-hide
-    	{% elseif i == 0 %}
-    	select
-    	{% endif %}
-    	">
-    		<img src="{{ breves[i].illustration }}" alt="" width="620px" height="350px"/>
-		<div class="info" >
-		<div>
-			<div class="txt">
-				<p>
-					<span class="entete">{{ breves[i].categorie.libelle }}</span><br>
-					<span class="title"><a href="{{ path('DFBreveBundle_afficherBreve', { id_breve: breves[i].id }) }}">{{ breves[i].title }}</a></span>
-				</p>
-			</div>
-		</div>
-		</div>
-    </div>
+    	{% if breves[i] is not null %}
+	    	<div id="frag{{ i+1 }}" class="ui-tabs-panel 
+	    	{% if i != 0 %}
+	    	ui-tabs-hide
+	    	{% elseif i == 0 %}
+	    	select
+	    	{% endif %}
+	    	">
+	    		<img src="{{ breves[i].illustration }}" alt="" width="620px" height="350px"/>
+				<div class="info" >
+					<div>
+						<div class="txt">
+							<p>
+								<span class="entete">{{ breves[i].categorie.libelle }}</span><br>
+								<span class="title"><a href="{{ path('DFBreveBundle_afficherBreve', { id_breve: breves[i].id }) }}">{{ breves[i].title }}</a></span>
+							</p>
+						</div>
+					</div>
+				</div>
+		    </div>
+		{% endif %}
     {% endfor %}
     <div id="frag">
 		<span class="chx" id="1">•</span>
