@@ -10,7 +10,7 @@
 
 <div id="slide">
     {% for i in 0..3 %}
-    	{% if breves[i] is not null %}
+    	{% if breves[i] is defined %}
 	    	<div id="frag{{ i+1 }}" class="ui-tabs-panel 
 	    	{% if i != 0 %}
 	    	ui-tabs-hide
