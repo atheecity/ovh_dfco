@@ -22,10 +22,18 @@ class PublicController extends Controller
 				array('user' => $user, 'question' => $sondage)
 		);
 		
-		if ($userVote)
-			$res = $this->resultsSondageAction($sondage);
-		else 
-			$res = $this->voteSondageAction($sondage, $user, $request, $userVote);
+		if ($sondage) {
+			if ($userVote)
+				$res = $this->resultsSondageAction($sondage);
+			else 
+				$res = $this->voteSondageAction($sondage, $user, $request, $userVote);
+		}
+		else {
+			$question['libelle'] = '';
+			$res = $this->render('DFSondageBundle:Public:nullModuleSondage.html.twig', array(
+				'question' => $question,
+			));
+		}
 		
 		return $res;
 	}
@@ -38,7 +46,7 @@ class PublicController extends Controller
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 * 
 	 */
-	public function voteSondageAction(Question $sondage, $user, $request, $userVote)
+	public function voteSondageAction($sondage, $user, $request, $userVote)
 	{
 		$em = $this->getDoctrine()->getManager();
 		
