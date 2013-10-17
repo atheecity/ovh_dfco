@@ -11,3 +11,7 @@ DFStadeBundle_deleteStade:
 DFStadeBundle_listeStadeAdmin:
     pattern: /admin/stades/
     defaults: { _controller: DFStadeBundle:Private:listeStadeAdmin }
+    
+DFStadeBundle_updateStadeAdmin:
+    pattern: /admin/stades/{stade_id}/update/
+    defaults: { _controller: DFStadeBundle:Private:updateStadeAdmin }

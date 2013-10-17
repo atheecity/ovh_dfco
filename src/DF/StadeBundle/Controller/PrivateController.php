@@ -95,10 +95,10 @@ class PrivateController extends Controller
 	 * 
 	 * @Secure(roles="ROLE_REDACTEUR")
 	 */
-	public function updateStadeAction($id_stade)
+	public function updateStadeAdminAction($stade_id)
 	{
 		$em = $this->getDoctrine()->getManager();
-		$stade = $em->getRepository('DFStadeBundle:Stade')->find($id_stade);
+		$stade = $em->getRepository('DFStadeBundle:Stade')->find($stade_id);
 		
 		if ($stade) {
 			$form = $this->createForm(new StadeType(), $stade);

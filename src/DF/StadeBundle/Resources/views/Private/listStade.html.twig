@@ -28,7 +28,7 @@
 					<td>{{ stade.capacite }}</td>
 					<td>
 						<a href="{{ path('DFStadeBundle_deleteStade', {'id_stade': stade.id }) }}">Supprimer</a>
-						<a href="{{ path('DFStadeBundle_updateStade', {'id_stade': stade.id }) }}">Modifier</a>
+						<a href="{{ path('DFStadeBundle_updateStadeAdmin', {'stade_id': stade.id }) }}">Modifier</a>
 					</td>
 				</tr>
 				{% endfor %}
