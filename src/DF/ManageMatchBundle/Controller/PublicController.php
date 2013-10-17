@@ -53,13 +53,13 @@ class PublicController extends Controller
 			return $this->render('DFManageMatchBundle:Public:team.html.twig', array(
 				'equipe' => $match->getEquipeDom(),
 				'composition' => $match->getFeuilleMatch()->getCompositionDom(),
-				'clubEntraineur' => $clubEntraineur,
+				'entraineur' => $clubEntraineur->getEntraineur(),
 			));
 		elseif ($type == 'away')
 			return $this->render('DFManageMatchBundle:Public:team.html.twig', array(
 				'equipe' => $match->getEquipeExt(),
 				'composition' => $match->getFeuilleMatch()->getCompositionExt(),
-				'clubEntraineur' => $clubEntraineur,
+				'entraineur' => $clubEntraineur->getEntraineur(),
 			));
 	}
 	
