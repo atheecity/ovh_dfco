@@ -15,15 +15,28 @@ class MatchsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
-            ->add('scoreDom')
-            ->add('scoreExt')
+            ->add('date', 'date', array(
+            	'widget' => 'single_text',
+        	))
+            ->add('scoreDom', 'text', array(
+            	'label' => 'Score équipe domicile'
+            ))
+            ->add('scoreExt', 'text', array(
+            	'label' => 'Socre équipe extérieur'
+        	))
             ->add('scoreDomTab')
             ->add('scoreExtTab')
             ->add('prolongation')
             ->add('report')
-            ->add('dateReport')
-            ->add('stade');
+            ->add('dateReport', 'date', array(
+            	'widget' => 'single_text',
+            	'required' => false,
+        	))
+            ->add('stade', 'entity', array(
+            	'class' => 'DFStadeBundle:Stade',
+            	'property' => 'nom',
+        	))
+		;
     }
 
     /**

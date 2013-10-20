@@ -138,7 +138,8 @@ class PrivateController extends Controller
 		
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 				'form' => $form->createView(),
-				'title' => 'Modifier un match',
+				'titleCategorie' => 'Matchs',
+				'title' => 'Modifier match : ' . $match->getEquipeDom()->getNom() .'-'. $match->getEquipeExt()->getNom(),
 		));
 	}
 	
