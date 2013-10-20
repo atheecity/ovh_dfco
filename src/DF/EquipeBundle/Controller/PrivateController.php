@@ -195,7 +195,7 @@ class PrivateController extends Controller
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 				'form' => $form->createView(),
 				'titleCategorie' => 'Entraineurs',
-				'title' => 'Modifier entraineur : '+$entraineur->getNom(),
+				'title' => 'Modifier entraineur : '+$entraineur->getNom()
 		));
 	}
 	
