@@ -6,11 +6,21 @@
 <script src="{{ asset('bundles/dfbreve/js/breve.js') }}" type="text/javascript"></script>
 {% endblock %}
 
+{% block breadcrumb %}
+<li>> Liste des brèves</li>
+{% endblock %}
+
 {% block body %}
-<a href="{{ path('DFBreveBundle_newBreve') }}" >Ajouter une brève</a>
 <div class="bloc">
-	<div class="title">Liste des brèves</div>
+	<div class="title">
+		<div class="title_txt">Liste des brèves</div>
+	</div>
 	<div class="content">
+		<div class="table_toolbar">
+			<div class="btn_group">
+				<a href="{{ path('DFBreveBundle_newBreve') }}" class="edit_1_new btn" >Ajouter une brève</a>
+			</div>
+		</div>
 		<table>
 			<thead>
 				<tr>
@@ -20,7 +30,7 @@
 					<th>Date Création</th>
 					<th>Date publication</th>
 					<th>Auteurs</th>
-					<th>Opérations</th>	
+					<th>&nbsp;</th>	
 				</tr>
 			</thead>
 			<tbody>
@@ -57,8 +67,8 @@
 					</td>
 					<td>{{ breve.author.username }}</td>
 					<td>
-						<a href="{{ path('DFBreveBundle_deleteBreve', {'id_breve': breve.id }) }}">Supprimer</a>
-						<a href="{{ path('DFBreveBundle_updateBreve', {'id_breve': breve.id }) }}">Modifier</a>
+						<a href="{{ path('DFBreveBundle_updateBreve', {'id_breve': breve.id }) }}" class="a_border bd_blue">Modifier</a>
+						<a href="{{ path('DFBreveBundle_deleteBreve', {'id_breve': breve.id }) }}" class="a_border bd_red">Supprimer</a>
 					</td>
 				</tr>
 				{% endfor %}

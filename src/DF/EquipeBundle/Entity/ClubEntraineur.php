@@ -27,7 +27,7 @@ class ClubEntraineur
     private $club;
     
     /**
-     * @ORM\ManyToOne(targetEntity="DF\EquipeBundle\Entity\Entraineur")
+     * @ORM\ManyToOne(targetEntity="DF\EquipeBundle\Entity\Entraineur", inversedBy="clubEntraineurs")
      */
     private $entraineur;
     
@@ -35,6 +35,11 @@ class ClubEntraineur
      * @ORM\ManyToOne(targetEntity="DF\MatchBundle\Entity\Saison")
      */
     private $saison;
+    
+    /**
+     * @ORM\Column(name="date_depart", type="datetime", nullable=true)
+     */
+    private $dateDepart;
 
 
     /**
@@ -114,5 +119,28 @@ class ClubEntraineur
     public function getSaison()
     {
         return $this->saison;
+    }
+
+    /**
+     * Set dateDepart
+     *
+     * @param \DateTime $dateDepart
+     * @return ClubEntraineur
+     */
+    public function setDateDepart($dateDepart)
+    {
+        $this->dateDepart = $dateDepart;
+    
+        return $this;
+    }
+
+    /**
+     * Get dateDepart
+     *
+     * @return \DateTime 
+     */
+    public function getDateDepart()
+    {
+        return $this->dateDepart;
     }
 }

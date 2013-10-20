@@ -2,11 +2,21 @@
 
 {% block titleContent %}Stade{% endblock %}
 
+{% block breadcrumb %}
+<li>> Liste des stades</li>
+{% endblock %}
+
 {% block body %}
-<a href="{{ path('DFStadeBundle_newStade') }}" >Ajouter un stade</a>
 <div class="bloc">
-	<div class="title">Liste des stades</div>
+	<div class="title">
+		<div class="title_txt">Liste des stades</div>
+	</div>
 	<div class="content">
+		<div class="table_toolbar">
+			<div class="btn_group">
+				<a href="{{ path('DFStadeBundle_newStade') }}" class="edit_1_new btn" >Ajouter un stade</a>
+			</div>
+		</div>
 		<table>
 			<thead>
 				<tr>
@@ -15,7 +25,7 @@
 					<th>Ville</th>
 					<th>Code postal</th>
 					<th>Capacité</th>
-					<th>Opérations</th>	
+					<th>&nbsp;</th>	
 				</tr>
 			</thead>
 			<tbody>
@@ -27,8 +37,8 @@
 					<td>{{ stade.codePostal }}</td>
 					<td>{{ stade.capacite }}</td>
 					<td>
-						<a href="{{ path('DFStadeBundle_deleteStade', {'id_stade': stade.id }) }}">Supprimer</a>
-						<a href="{{ path('DFStadeBundle_updateStadeAdmin', {'stade_id': stade.id }) }}">Modifier</a>
+						<a href="{{ path('DFStadeBundle_updateStadeAdmin', {'stade_id': stade.id }) }}" class="a_border bd_blue">Modifier</a>
+						<a href="{{ path('DFStadeBundle_deleteStade', {'id_stade': stade.id }) }}" class="a_border bd_red">Supprimer</a>
 					</td>
 				</tr>
 				{% endfor %}

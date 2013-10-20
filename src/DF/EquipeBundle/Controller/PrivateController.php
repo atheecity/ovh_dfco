@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use DF\EquipeBundle\DFEquipeBundle;
 use DF\EquipeBundle\Form\ClubType;
+use DF\EquipeBundle\Entity\Entraineur;
+use DF\EquipeBundle\Form\EntraineurType;
 
 class PrivateController extends Controller
 {
@@ -53,6 +55,7 @@ class PrivateController extends Controller
 		
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 				'form' => $form->createView(),
+				'titleCategorie' => 'Equipes',
 				'title' => 'Ajouter un club',
 		));
 	}
@@ -115,8 +118,92 @@ class PrivateController extends Controller
 		
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 			'form' => $form->createView(),
-			'title' => 'Modifier un club',
+			'titleCategorie' => 'Equipes',
+			'title' => 'Modifier club : ' . $club->getNom(),
 		));
+	}
+	
+	/**
+	 * Liste des entraineurs
+	 * 
+	 * @Secure(roles="ROLE_REDACTEUR")
+	 */
+	public function listEntraineurAdminAction()
+	{
+		$saison_id = $this->container->getParameter('saison');
+		
+		$entraineurs = $this->getDoctrine()->getRepository('DFEquipeBundle:Entraineur')->getEntraineurWithClub();
+		
+		return $this->render('DFEquipeBundle:Private:listEntraineur.html.twig', array(
+			'entraineurs' => $entraineurs,
+			'saisonId' => $saison_id
+		));
+	}
+	
+	/**
+	 * Ajouter un entraineur
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 * 
+	 * @Secure(roles="ROLE_REDACTEUR")
+	 */
+	public function newEntraineurAction()
+	{
+		$entraineur = new Entraineur();
+		
+		$form = $this->createForm(new EntraineurType(), $entraineur);
+		
+		$request = $this->get('request');
+		if ($request->getMethod() == 'POST') {
+			$form->bind($request);
+		
+			if ($form->isValid()) {
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($entraineur);
+				$em->flush();
+			}
+		
+			return $this->redirect($this->generateUrl('DFEquipeBundle_listEntraineurAdmin'));
+		}
+		
+		return $this->render('DFAdminBundle:Private:form.html.twig', array(
+			'form' => $form->createView(),
+			'titleCategorie' => 'Entraineurs',
+			'title' => 'Ajouter un entraineur',
+		));
+	}
+	
+	public function updateEntraineurAction($entraineur_id)
+	{
+		$entraineur = $this->getDoctrine()->getRepository('DFEquipeBundle:Entraineur')->findOneById($entraineur_id);
+		
+		$form = $this->createForm(new EntraineurType(), $entraineur);
+		
+		$request = $this->get('request');
+		if ($request->getMethod() == 'POST') {
+			$form->bind($request);
+		
+			if ($form->isValid()) {
+				$em = $this->getDoctrine()->getManager();
+				$em->flush();
+			}
+		
+			return $this->redirect($this->generateUrl('DFEquipeBundle_listEntraineurAdmin'));
+		}
+		
+		return $this->render('DFAdminBundle:Private:form.html.twig', array(
+				'form' => $form->createView(),
+				'titleCategorie' => 'Entraineurs',
+				'title' => 'Modifier entraineur : '+$entraineur->getNom(),
+		));
+	}
+	
+	private function getCurrentClubForEntraineur($entraineur)
+	{
+		$saison_id = $this->container->getParameter('saison');
+		
+		$clubEntraineur = $this->getDoctrine()->getRepository('DFEquipeBundle:ClubEntraineur')->getCurrentClubForEntraineur($entraineur, $saison_id);
+		
+		return $clubEntraineur;
 	}
 	
 }

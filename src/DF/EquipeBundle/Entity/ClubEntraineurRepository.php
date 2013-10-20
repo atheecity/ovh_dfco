@@ -12,4 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClubEntraineurRepository extends EntityRepository
 {
+	
+	public function getCurrentClubForEntraineur($entraineur, $saison_id)
+	{
+		$em = $this->createQueryBuilder();
+		
+		$em ->select('DF\EquipeBundle\Entity\ClubEntraineur', 'ce')
+			->where('ce.entraineur = :entraineur')
+			->andWhere('ce.dateDepart IS NULL')
+			->andWhere('ce.saison = :saison')
+			->setParameter('entraineur', $entraineur)
+			->setParameter('saison', $saison_id);
+		
+		return $em->getQuery()->getOneOrNullResult();
+	}
+	
 }

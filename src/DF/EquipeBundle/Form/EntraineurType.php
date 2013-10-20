@@ -1,12 +1,12 @@
 <?php
 
-namespace DF\SondageBundle\Form;
+namespace DF\EquipeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class QuestionType extends AbstractType
+class EntraineurType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,20 +15,11 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('libelle', 'text', array(
-            	'label' => 'Question'
-        	))
-            ->add('dateDebut', 'date', array(
-            	'widget' => 'single_text'
-        	))
-            ->add('dateFin', 'date', array(
-            	'widget' => 'single_text'
-        	))
-            ->add('reponses', 'collection', array(
-            	'type' => new ReponseType(),
-            	'allow_add' => true,
-            	'allow_delete' => true, 
-            	'by_reference' => false,
+            ->add('nom')
+            ->add('prenom')
+            ->add('dateNaissance',  'date', array(
+            	'widget' => 'single_text',
+            	'label' => 'Date de naissance'
         	))
         ;
     }
@@ -39,7 +30,7 @@ class QuestionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DF\SondageBundle\Entity\Question'
+            'data_class' => 'DF\EquipeBundle\Entity\Entraineur'
         ));
     }
 
@@ -48,6 +39,6 @@ class QuestionType extends AbstractType
      */
     public function getName()
     {
-        return 'df_sondagebundle_question';
+        return 'df_equipebundle_entraineur';
     }
 }

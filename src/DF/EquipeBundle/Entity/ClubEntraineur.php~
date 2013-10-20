@@ -35,6 +35,11 @@ class ClubEntraineur
      * @ORM\ManyToOne(targetEntity="DF\MatchBundle\Entity\Saison")
      */
     private $saison;
+    
+    /**
+     * @ORM\Column(name="date_depart", type="datetime", nullable=true)
+     */
+    private $dateDepart;
 
 
     /**
@@ -45,5 +50,74 @@ class ClubEntraineur
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set club
+     *
+     * @param \DF\EquipeBundle\Entity\Club $club
+     * @return ClubEntraineur
+     */
+    public function setClub(\DF\EquipeBundle\Entity\Club $club = null)
+    {
+        $this->club = $club;
+    
+        return $this;
+    }
+
+    /**
+     * Get club
+     *
+     * @return \DF\EquipeBundle\Entity\Club 
+     */
+    public function getClub()
+    {
+        return $this->club;
+    }
+
+    /**
+     * Set entraineur
+     *
+     * @param \DF\EquipeBundle\Entity\Entraineur $entraineur
+     * @return ClubEntraineur
+     */
+    public function setEntraineur(\DF\EquipeBundle\Entity\Entraineur $entraineur = null)
+    {
+        $this->entraineur = $entraineur;
+    
+        return $this;
+    }
+
+    /**
+     * Get entraineur
+     *
+     * @return \DF\EquipeBundle\Entity\Entraineur 
+     */
+    public function getEntraineur()
+    {
+        return $this->entraineur;
+    }
+
+    /**
+     * Set saison
+     *
+     * @param \DF\MatchBundle\Entity\Saison $saison
+     * @return ClubEntraineur
+     */
+    public function setSaison(\DF\MatchBundle\Entity\Saison $saison = null)
+    {
+        $this->saison = $saison;
+    
+        return $this;
+    }
+
+    /**
+     * Get saison
+     *
+     * @return \DF\MatchBundle\Entity\Saison 
+     */
+    public function getSaison()
+    {
+        return $this->saison;
     }
 }

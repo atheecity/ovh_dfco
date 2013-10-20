@@ -126,44 +126,4 @@ class Entraineur
     {
         return $this->dateNaissance;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->clubEntraineurs = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add clubEntraineurs
-     *
-     * @param \DF\EquipeBundle\Entity\ClubEntraineur $clubEntraineurs
-     * @return Entraineur
-     */
-    public function addClubEntraineur(\DF\EquipeBundle\Entity\ClubEntraineur $clubEntraineurs)
-    {
-        $this->clubEntraineurs[] = $clubEntraineurs;
-    
-        return $this;
-    }
-
-    /**
-     * Remove clubEntraineurs
-     *
-     * @param \DF\EquipeBundle\Entity\ClubEntraineur $clubEntraineurs
-     */
-    public function removeClubEntraineur(\DF\EquipeBundle\Entity\ClubEntraineur $clubEntraineurs)
-    {
-        $this->clubEntraineurs->removeElement($clubEntraineurs);
-    }
-
-    /**
-     * Get clubEntraineurs
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getClubEntraineurs()
-    {
-        return $this->clubEntraineurs;
-    }
 }

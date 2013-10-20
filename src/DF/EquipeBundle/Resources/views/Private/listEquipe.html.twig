@@ -2,21 +2,30 @@
 
 {% block titleContent %}Equipes{% endblock %}
 
+{% block breadcrumb %}
+<li>> Liste des équipes</li>
+{% endblock %}
+
 {% block body %}
-<a href="{{ path('DFEquipeBundle_newClub') }}" >Ajouter une équipe</a>
 <div class="bloc">
-	<div class="title">Liste des equipes</div>
+	<div class="title">
+		<div class="title_txt">Liste des équipes</div>
+	</div>
 	<div class="content">
+		<div class="table_toolbar">
+			<div class="btn_group">
+				<a href="{{ path('DFEquipeBundle_newClub') }}" class="edit_1_new btn" >Ajouter une équipe</a>
+			</div>
+		</div>
 		<table>
 			<thead>
 				<tr>
 					<th>Nom</th>
 					<th>Nom complet</th>
-					<th>Logo</th>
 					<th>Acronyme</th>
 					<th>Lfp libellé</th>
 					<th>Adresse</th>
-					<th>Opérations</th>	
+					<th>&nbsp;</th>	
 				</tr>
 			</thead>
 			<tbody>
@@ -24,13 +33,12 @@
 				<tr>
 					<td>{{ club.nom }}</td>
 					<td>{{ club.nomComplet }}</td>
-					<td>{{ club.logo|raw }}</td>
 					<td>{{ club.acronyme }}</td>
 					<td>{{ club.lfpLibelle }}</td>
 					<td>{{ club.adresse }}</td>
 					<td>
-						<a href="{{ path('DFEquipeBundle_deleteClub', {'id_club': club.id }) }}">Supprimer</a>
-						<a href="{{ path('DFEquipeBundle_updateClub', {'id_club': club.id }) }}">Modifier</a>
+						<a href="{{ path('DFEquipeBundle_updateClub', {'id_club': club.id }) }}" class="a_border bd_blue">Modifier</a>	
+						<a href="{{ path('DFEquipeBundle_deleteClub', {'id_club': club.id }) }}" class="a_border bd_red">Supprimer</a>
 					</td>
 				</tr>
 				{% endfor %}

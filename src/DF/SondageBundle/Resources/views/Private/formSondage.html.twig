@@ -1,7 +1,12 @@
 {% extends 'DFAdminBundle::layout.html.twig' %}
 
+{% block titleContent %}{{ titleCategorie }}{% endblock %}
+
+{% block breadcrumb %}
+<li>> {{ title }}</li>
+{% endblock %}
+
 {% block body %}
-	<h1>{{ title }}</h1>
 	
 	<form method="post" {{ form_enctype(form) }}>
 		{{ form_widget(form) }}

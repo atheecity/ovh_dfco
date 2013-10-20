@@ -1,0 +1,72 @@
+{% extends 'DFAdminBundle::layout.html.twig' %}
+
+{% block titleContent %}Entraineurs{% endblock %}
+
+{% block breadcrumb %}
+<li>> Liste des entraineurs</li>
+{% endblock %}
+
+{% block body %}
+<div class="bloc">
+	<div class="title">
+		<div class="title_txt">Liste des entraineurs</div>
+		<!-- <div class="action">
+			Actions
+			<ul class="dropdown-menu pull-right">
+				<li>
+					<a href="">Lier Entraineur/Club</a>
+				</li>
+				<li></li>
+			</ul>
+		</div>-->
+	</div>
+	<div class="content">
+		<div class="table_toolbar">
+			<div class="btn_group">
+				<a href="{{ path('DFEquipeBundle_newEntraineur') }}" class="edit_1_new btn" >Ajouter un entraineur</a>
+			</div>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Date de naissance</th>
+					<th>Club actuel</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for entraineur in entraineurs %}
+					<tr>
+						<td>{{ entraineur.nom }}</td>
+						<td>
+							{{ entraineur.prenom }}
+						</td>
+						<td>
+							{{ entraineur.dateNaissance|date('d/m/Y') }}
+						</td>
+						<td>
+							{% set clubA = 0 %}
+							{% for clubEntraineur in entraineur.clubEntraineurs %}
+								{% if clubEntraineur.dateDepart is null and clubEntraineur.saison.id == saisonId %}
+									{{ clubEntraineur.club.nom }}
+									{% set clubA = 1 %}
+								{% endif %}
+							{% endfor %}
+						</td>
+						<td style="text-align: left">
+							<a href="{{ path('DFEquipeBundle_updateEntraineur', {entraineur_id:entraineur.id}) }}" class="a_border bd_blue">Modifier</a>
+							{% if clubA == 1 %}
+								<a href="" class="a_border bd_red">Supprimer club</a>
+							{% else %}
+								<a href="" class="a_border bd_green">Ajouter club</a>
+							{% endif %}
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %} 

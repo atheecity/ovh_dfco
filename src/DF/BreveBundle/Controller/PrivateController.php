@@ -43,6 +43,7 @@ class PrivateController extends Controller
 		
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 			'form' => $form->createView(),
+			'titleCategorie' => 'Brèves',
 			'title' => 'Ajouter une brève',
 		));
 	}
@@ -172,7 +173,8 @@ class PrivateController extends Controller
 		
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 			'form' => $form->createView(),
-			'title' => 'Modifier une brève',
+			'titleCategorie' => 'Brèves',
+			'title' => 'Modifier brève : ' . $breve->getTitle(),
 		));
 	}
 	

@@ -37,6 +37,7 @@ class PrivateController extends Controller
 		
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 			'form' => $form->createView(),
+			'titleCategorie' => 'Stades',
 			'title' => 'Ajouter un stade',
 		));
 	}
@@ -123,7 +124,8 @@ class PrivateController extends Controller
 		
 		return $this->render('DFAdminBundle:Private:form.html.twig', array(
 				'form' => $form->createView(),
-				'title' => 'Modifier un stade',
+				'titleCategorie' => 'Stades',
+				'title' => 'Modifier stade : ' . $stade->getNom(),
 		));
 	}
 	

@@ -1,5 +1,12 @@
 {% extends 'DFAdminBundle::layout.html.twig' %}
 
+{% block titleContent %}{{ titleCategorie }}{% endblock %}
+
+
+{% block breadcrumb %}
+<li>> {{ title }}</li>
+{% endblock %}
+
 {% block body %}
 <script src="{{ asset('bundles/dfadmin/js/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/dfadmin/js/ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
@@ -14,8 +21,6 @@ function textareaToCkeditor()
 $(textareaToCkeditor);
 //-->
 </script>
-
-<h1>{{ title }}</h1>
 
 <form method="post" {{ form_enctype(form) }}>
 	{{ form_widget(form) }}

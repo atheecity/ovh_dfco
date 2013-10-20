@@ -25,7 +25,7 @@ class Question
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="text")
+     * @ORM\Column(name="libelle", type="string")
      */
     private $libelle;
 

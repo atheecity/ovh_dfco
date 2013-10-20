@@ -10,6 +10,7 @@
         {% block javascripts %}
         {% endblock %}
 		<link href="{{ asset('bundles/dfadmin/css/admin.css') }}" rel="stylesheet" media="screen" />
+		<link href="{{ asset('bundles/dfadmin/css/newAdmin.css') }}" rel="stylesheet" media="screen" />
     </head>
     <body class="wood dark">
         <div id="head">
@@ -49,10 +50,23 @@
                 <li>
                 	<a href="{{ path('DFSondageBundle_listSondage') }}" src="" alt="">Sondage</a>
                 </li>
+                <li>
+                	<a href="{{ path('DFEquipeBundle_listEntraineurAdmin') }}">Entraineur</a>
+                </li>
             </ul>
         </div> 
         <div id="content" class="black">
-			<h1>{% block titleContent %}{% endblock %}</h1>  
+			<h3 class="admin_title">{% block titleContent %}Dashboard{% endblock %}</h3>
+				<ul id="page_breadcrumb">
+					<li>Home</li>
+					{% block breadcrumb %}
+					{% endblock %}
+					<li id="cal_right">
+						<div id="date_dashboard_range">
+							<span>{{ "now"|date("d/m/Y  H:i") }}</span>
+						</div>
+					</li>
+				</ul> 
 			{% block body %}
 			{% endblock %}             
         </div>

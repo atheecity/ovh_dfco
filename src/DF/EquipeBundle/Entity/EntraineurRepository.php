@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class EntraineurRepository extends EntityRepository
 {
+	
+	public function getEntraineurWithClub()
+	{
+		$em = $this->createQueryBuilder('e');
+		$em ->leftjoin('e.clubEntraineurs', 'ce');
+		
+		return $em->getQuery()->getResult();
+	}
+	
 }

@@ -17,3 +17,15 @@ DFEquipeBundle_updateClub:
     defaults: { _controller: DFEquipeBundle:Private:updateClub }
     requirements:
         id_club: \d+
+        
+DFEquipeBundle_listEntraineurAdmin:
+    pattern: /admin/entraineurs/
+    defaults: { _controller: DFEquipeBundle:Private:listEntraineurAdmin }
+    
+DFEquipeBundle_newEntraineur:
+    pattern: /admin/entraineurs/new/
+    defaults: { _controller: DFEquipeBundle:Private:newEntraineur }
+    
+DFEquipeBundle_updateEntraineur:
+    pattern: /admin/entraineurs/{entraineur_id}/update/
+    defaults: { _controller: DFEquipeBundle:Private:updateEntraineur }

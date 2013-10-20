@@ -2,16 +2,34 @@
 
 {% block titleContent %}Sondages{% endblock %}
 
+{% block breadcrumb %}
+<li>> Liste des sondages</li>
+{% endblock %}
+
 {% block body %}
-<a href="{{ path('DFSondageBundle_newSondage') }}" >Ajouter un sondage</a>
 <div class="bloc">
-	<div class="title">Liste des sondages</div>
+	<div class="toast_container">
+		<div class="toast_warning">
+			<div class="toast_title">Warning notification</div>
+			<div class="toast_message">Aucun sondage pour le moment !</div>
+		</div>
+	</div>
+	<div class="title">
+		<div class="title_txt">Liste des sondages</div>
+	</div>
 	<div class="content">
+		<div class="table_toolbar">
+			<div class="btn_group">
+				<a href="{{ path('DFSondageBundle_newSondage') }}" class="edit_1_new btn" >Ajouter un sondage</a>
+			</div>
+		</div>
 		<table>
 			<thead>
 				<tr>
 					<th>Question</th>
 					<th>Réponses</th>
+					<th>Status</th>
+					<th>&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,6 +40,19 @@
 							{% for reponse in sondage.reponses %}
 								{{ reponse.libelle }},  
 							{% endfor %}
+						</td>
+						<td>
+							{% set dateNow = "now"|date("Ymd") %}
+							{% if sondage.dateDebut|date("Ymd") > dateNow %}
+								<span class="status bc_grey">Début le {{ sondage.dateDebut|date("d/m/Y") }}</span>
+							{% elseif sondage.dateFin|date("Ymd") < dateNow %}
+								<span class="status bc_yellow">Terminé</span>
+							{% else %}
+								<span class="status bc_green">En cours</span>
+							{% endif %}
+						</td>
+						<td>
+							<a href="" class="a_border bd_blue">Modifier</a>
 						</td>
 					</tr>
 				{% endfor %}
