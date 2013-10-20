@@ -880,7 +880,7 @@ body{
 	display: inline-block;
 }
 
-form div div {
+form div>div {
 	padding-bottom: 20px;
 }
 

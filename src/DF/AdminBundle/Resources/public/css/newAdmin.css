@@ -151,3 +151,9 @@
 	right: 0;
 	left: auto;
 }
+
+/************************************* STYLE SP2CIAUX********************************************/
+#df_matchbundle_matchstype_date {
+	padding-bottom: 0;
+	display: inline-block;
+}
