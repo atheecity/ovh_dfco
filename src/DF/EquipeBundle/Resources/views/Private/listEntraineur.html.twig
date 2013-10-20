@@ -60,7 +60,7 @@
 							{% if clubA == 1 %}
 								<a href="" class="a_border bd_red">Supprimer club</a>
 							{% else %}
-								<a href="" class="a_border bd_green">Ajouter club</a>
+								<a href="{{ path('DFEquipeBundle_newClubEntraineur', {entraineur_id:entraineur.id}) }}" class="a_border bd_green">Ajouter club</a>
 							{% endif %}
 						</td>
 					</tr>

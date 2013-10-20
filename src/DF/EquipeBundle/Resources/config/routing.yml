@@ -29,3 +29,7 @@ DFEquipeBundle_newEntraineur:
 DFEquipeBundle_updateEntraineur:
     pattern: /admin/entraineurs/{entraineur_id}/update/
     defaults: { _controller: DFEquipeBundle:Private:updateEntraineur }
+    
+DFEquipeBundle_newClubEntraineur:
+    pattern: /admin/entraineurs/{entraineur_id}/club/new/
+    defaults: { _controller: DFEquipeBundle:Private:newClubEntraineur }

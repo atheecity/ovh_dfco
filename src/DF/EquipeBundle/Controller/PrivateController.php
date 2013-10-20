@@ -8,6 +8,8 @@ use DF\EquipeBundle\DFEquipeBundle;
 use DF\EquipeBundle\Form\ClubType;
 use DF\EquipeBundle\Entity\Entraineur;
 use DF\EquipeBundle\Form\EntraineurType;
+use DF\EquipeBundle\Entity\ClubEntraineur;
+use DF\EquipeBundle\Form\NewClubEntraineurType;
 
 class PrivateController extends Controller
 {
@@ -194,6 +196,39 @@ class PrivateController extends Controller
 				'form' => $form->createView(),
 				'titleCategorie' => 'Entraineurs',
 				'title' => 'Modifier entraineur : '+$entraineur->getNom(),
+		));
+	}
+	
+	public function newClubEntraineurAction($entraineur_id)
+	{
+		$entraineur = $this->getDoctrine()->getRepository('DFEquipeBundle:Entraineur')->findOneById($entraineur_id);
+		
+		$saison_id = $this->container->getParameter('saison');
+		$saison = $this->getDoctrine()->getRepository('DFMatchBundle:Saison')->findOneById($saison_id);
+		
+		$clubEntraineur = new ClubEntraineur();
+		$clubEntraineur->setEntraineur($entraineur);
+		$clubEntraineur->setSaison($saison);
+		
+		$form = $this->createForm(new NewClubEntraineurType(), $clubEntraineur);
+		
+		$request = $this->get('request');
+		if ($request->getMethod() == 'POST') {
+			$form->bind($request);
+		
+			if ($form->isValid()) {
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($clubEntraineur);
+				$em->flush();
+			}
+		
+			return $this->redirect($this->generateUrl('DFEquipeBundle_listEntraineurAdmin'));
+		}
+		
+		return $this->render('DFAdminBundle:Private:form.html.twig', array(
+			'form' => $form->createView(),
+			'titleCategorie' => 'Entraineurs', 
+			'title' => 'Ajouter club : ' . $entraineur->getNom(),
 		));
 	}
 	
